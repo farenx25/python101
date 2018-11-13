@@ -52,42 +52,4 @@ print(czlowiek2)
 
 
 
-#Zadanie 5
 
-
-def bus(a):
-    bus_number = 1
-    for n in range(len(a)):
-        if bus_number == a[n]:
-            try:
-                bus_number == a[n+1]
-                pass
-            except IndexError:
-                bus_number += 1
-        elif bus_number < a[n]:
-            while bus_number < a[n]:
-                bus_number += 1
-        elif bus_number > a[n]:
-            empty = bus_number - a[n]
-            for i in range(n,len(a)):
-                try:
-                    if empty < a[i+1]:
-                        bus_number += 1
-                        break
-                except IndexError:
-                        bus_number +=1
-                else:
-                    z = a[i]
-                    while empty > z:
-                        z = z + a[i+1]
-                        bus_number += 1
-                    if empty % z == 0:
-                        break
-                    else:
-                        bus_number -= 1
-    return bus_number
-                    
-print(bus([5]))
-print(bus([5,1]))
-print(bus([5,7]))
-print(bus([1,2,3]))
